@@ -16,9 +16,9 @@ services:
     - "4567:4567"
     environment:
       REDIS_HOST: "redis"
-      REDIS_PORT: "6379:6379"
+      REDIS_PORT: "6379"
       REDIS_DB: 0
-      KAFKA_BROKER: "kafka:9092"
+      KAFKA_BROKER: "kafka:19092"
       KAFKA_RISK_TOPIC: "customer-risk-topic"
     depends_on:
     - "redis"
@@ -39,7 +39,7 @@ services:
   kafka:
     image: confluentinc/cp-kafka:5.5.1
     ports:
-    - "19092:19092"
+    - "19092:9092"
     environment:
       KAFKA_BROKER_ID: "0"
       KAFKA_ZOOKEEPER_CONNECT: "zookeeper:2181"

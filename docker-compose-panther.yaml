@@ -20,6 +20,8 @@ services:
       REDIS_DB: 0
       KAFKA_BROKER: "9092:9092"
       KAFKA_RISK_TOPIC: "customer_risk_topic"
+      STEDI_KAFKA_CONNECT: "kafka:19092"
+      STEDI_REDIS_CONNECT: "redis:6379"
   
   redis:
     image: redis:6.0.6
@@ -27,9 +29,6 @@ services:
     - "6379:6379"
     depends_on:
     - "stedi"
-
-
-
    
   zookeeper:
     image: confluentinc/cp-zookeeper:5.2.2
@@ -39,9 +38,9 @@ services:
       ZOOKEEPER_CLIENT_PORT: "2181"
 
   kafka:
-    image: confluentinc/cp-kafka:5.2.2
+    image: confluentinc/cp-kafka:5.5.1
     ports:
-    - "9092:9092"
+    - "19092:9092"
     environment:
       KAFKA_BROKER_ID: 0
       KAFKA_ZOOKEEPER_CONNECT: "zookeeper:2181"

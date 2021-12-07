@@ -15,10 +15,10 @@ services:
     ports:
     - "4567:4567"
     environment:
-      REDIS_HOST: "customer"
+      REDIS_HOST: "redis"
       REDIS_PORT: "6379:6379"
       REDIS_DB: 0
-      KAFKA_BROKER: "9092:9092"
+      KAFKA_BROKER: "kafka:9092"
       KAFKA_RISK_TOPIC: "customer_risk_topic"
       STEDI_KAFKA_CONNECT: "kafka:19092"
       STEDI_REDIS_CONNECT: "redis:6379"

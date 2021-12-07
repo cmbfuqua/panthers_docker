@@ -10,6 +10,19 @@
 version: '3.7'
 
 services:
+  stedi:
+    image:
+    ports:
+    - "4567:4567"
+    environment:
+      REDIS_HOST: "customer"
+      REDIS_PORT: "6379:6379"
+      REDIS_DB: 0
+      KAFKA_BROKER: "9092:9092"
+      KAFKA_RISK_TOPIC: "customer_risk_topic"
+  
+  redis:
+
   zookeeper:
     image: confluentinc/cp-zookeeper:5.2.2
     ports:

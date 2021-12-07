@@ -22,13 +22,14 @@ services:
       KAFKA_RISK_TOPIC: "customer_risk_topic"
       STEDI_KAFKA_CONNECT: "kafka:19092"
       STEDI_REDIS_CONNECT: "redis:6379"
+    depends_on:
+    - "redis"
+    - "kafka"
   
   redis:
     image: redis:6.0.6
     ports: 
     - "6379:6379"
-    depends_on:
-    - "stedi"
    
   zookeeper:
     image: confluentinc/cp-zookeeper:5.2.2
